@@ -1,6 +1,7 @@
 // Dependencies
 var express = require("express");
 var exphbs = require("express-handlebars");
+var path = require("path");
 
 
 // Create an instance of the express app.
@@ -15,10 +16,14 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname + "/public")));
 
 
 
+app.get("/", function(req, res) {
+    res.send("hi");
+    // res.render("index",  );
+  });
 
 
 // Start our server so that it can begin listening to client requests.
