@@ -25,8 +25,8 @@ app.use(bodyParser.json());
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname + "/public")));
 
-var routes = require("./controllers/burgers_controller.js");
-app.use("/", routes);
+// var routes = require("./controllers/burgers_controller.js");
+// app.use("/", routes);
 
 
 app.get("/", function(req, res) {
