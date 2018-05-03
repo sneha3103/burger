@@ -32,7 +32,7 @@ $(function () {
             sleepy: true,
         };
 
-        // Send the DELETE request.
+        // Send the updated request.
         $.ajax("/api/burgers/update/" + id, {
             type: "PUT",
             data: newDevouredState,
@@ -54,3 +54,5 @@ $(function () {
         var newDevouredState = {
             sleepy: true,
         };
+    });
+});
