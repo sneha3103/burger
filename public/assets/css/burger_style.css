@@ -1,0 +1,13 @@
+body {
+   background-color: #49b78f52;
+}
+
+h1, h2 , .create-form {
+    text-align: center;
+}
+
+#burgerpic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

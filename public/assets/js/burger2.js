@@ -29,7 +29,7 @@ $(function () {
         console.log(id);
 
         var newDevouredState = {
-            sleepy: true,
+            devoured: true,
         };
 
         // Send the updated request.
@@ -52,7 +52,7 @@ $(function () {
         console.log(id);
 
         var newDevouredState = {
-            sleepy: true,
+            devoured: true,
         };
     });
 });

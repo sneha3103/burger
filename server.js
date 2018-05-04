@@ -1,7 +1,7 @@
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+var hbs = require("express-handlebars");
 var path = require("path");
 
 var methodOverride = require("method-override");
@@ -15,7 +15,7 @@ var app = express();
 var PORT = process.env.PORT || 9000;
 
 // Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", hbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Sets up the Express app to handle data parsing
