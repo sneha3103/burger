@@ -2,8 +2,8 @@ $(function () {
     $(".add-burger").on("click", function (event) {
         event.preventDefault();
 
-        var id = $(this).data("id");
-
+        var id = $(this).data.id;
+        console.log("This is the " + id);
         var newBurger = {
             burger_name: $("#burg").val().trim(),
         };
