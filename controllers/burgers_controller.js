@@ -13,6 +13,9 @@ router.get("/", function (req, res){
             burgers: data
         };
         console.log(hbsObject);
+        for (i = 0; i < hbsObject.length; i++) {
+            hbsObject.burgers[i].devoured = parseInt(hbsObject.burgers[i].devoured);
+        }
         res.render("index", hbsObject);
     });
 });

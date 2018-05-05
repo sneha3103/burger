@@ -4,10 +4,14 @@
     <div class = "col-sm-6">
         <ul>
             {{#each burgers}}
-              {{#unless devoured}}
+              {{#unless this.devoured}}
            <li>
-               {{burger_name}}
-               <button class = "notdevoured" data-id = "{{id}}"> EAT! </button>
+               {{!-- {{burger_name}} --}}
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <span>{{this.id}}. {{this.burger_name}}</span>
+                        {{!-- <button type="submit" class="btn btn-sm float-right">Eat Up</button> --}}
+                </form>
+               <button class = "notdevoured" data-id = "{{this.id}}"> EAT! </button>
            </li>
               {{/unless}}
             {{/each}}
@@ -16,10 +20,11 @@
 
     <div class = "col-sm-6">
             {{#each burgers}}
-              {{#if devoured}}
+              {{#if this.devoured}}
            <li>
-               {{burger_name}}
-               <button class = "yesdevoured" data-id = "{{id}}"> I'M SATISFIED. NO MORE BURGERS! </button>
+               <span>{{this.id}}. {{this.burger_name}}</span>
+               {{!-- {{burger_name}} --}}
+               <button class = "yesdevoured" data-id = "{{this.id}}"> I'M SATISFIED. NO MORE BURGERS! </button>
            </li>
               {{/if}}
             {{/each}}

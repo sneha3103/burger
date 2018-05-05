@@ -10,6 +10,9 @@ $(function () {
 
         console.log(newBurger.burger_name);
 
+
+        newBurger.burger_name;
+
         // Send the POST request.
         $.ajax("/api/burgers/", {
             type: "POST",
