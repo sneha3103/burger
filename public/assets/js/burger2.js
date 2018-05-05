@@ -18,7 +18,7 @@ $(function () {
             function () {
                 console.log("Created New Burger");
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
             }
         );
     });
@@ -40,7 +40,7 @@ $(function () {
             function () {
                 console.log("Devoured burger #", id);
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
             }
         );
 

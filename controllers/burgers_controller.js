@@ -24,7 +24,9 @@ router.post("/api/burgers", function(req, res){
     burgers.insertOne("burger_name", newBurger, function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
+      
     });
+    res.redirect("/");
     // burgers.insertOne([
     //     "burger_name" , "devoured"
     // ], [
@@ -45,6 +47,7 @@ router.put("/api/burgers/update/:id", function (req, res){
         } else {
           res.status(200).end();
         }
+        res.redirect("/");
     });
 
     // burgers.updateOne({ 
