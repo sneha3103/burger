@@ -24,12 +24,12 @@ router.post("/api/burgers", function(req, res){
     var newBurger = req.body.burger_name.toString();
     console.log(newBurger);
 
-    burgers.insertOne("burger_name", newBurger, function(result) {
+    burgers.insertOne(newBurger, function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
-      
+      res.redirect("/");
     });
-    res.redirect("/");
+   
     // burgers.insertOne([
     //     "burger_name" , "devoured"
     // ], [
