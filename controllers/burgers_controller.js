@@ -20,7 +20,7 @@ router.get("/", function (req, res){
     });
 });
 
-router.post("/", function(req, res){
+router.post("/api/burgers", function(req, res){
     var newBurger = req.body.burger_name.toString();
     console.log(newBurger);
 
