@@ -32,7 +32,7 @@ $(function () {
         console.log(id);
 
         var newDevouredState = {
-            devoured: true,
+            devoured: true
         };
 
         // Send the updated request.

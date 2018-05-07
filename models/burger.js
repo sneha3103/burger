@@ -13,7 +13,7 @@ var burgers = {
             cb(res);
         });
     },
-
+   //objcolvals is devoured=true
     updateOne: function(objColVals, condition, cb) {
         orm.updateOne(objColVals, condition, function(res){
             cb(res);

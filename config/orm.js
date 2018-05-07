@@ -66,10 +66,12 @@ var orm = {
     
     //value of devoured from false to true
     //devour button associated w/burger
-    updateOne: function(updateBurger){
+    updateOne: function(updateBurger, burgerId, cb){
+        console.log("updateOne hit");
         var queryString = "UPDATE burgers SET devoured = true WHERE ?"
-        connection.query(queryString, {id: updateBurger}, function (err, result){
+        connection.query(queryString, {id: burgerId}, function (err, result){
             if (err) throw (err);
+            cb(result);
         });
     }
 

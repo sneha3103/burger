@@ -8,6 +8,7 @@ var burgers = require("../models/burger.js");
 // });
 
 router.get("/", function (req, res){
+    console.log("this root ran");
     burgers.selectAll(function (data) {
         var hbsObject = { 
             burgers: data
@@ -23,10 +24,13 @@ router.get("/", function (req, res){
 router.post("/api/burgers", function(req, res){
     var newBurger = req.body.burger_name.toString();
     console.log(newBurger);
+    console.log("post works");
+    // res.redirect("/");
+    
 
     burgers.insertOne(newBurger, function(result) {
       // Send back the ID of the new quote
-      res.json({ id: result.insertId });
+    //   res.json({ id: result.insertId });
       res.redirect("/");
     });
    
@@ -40,7 +44,8 @@ router.post("/api/burgers", function(req, res){
 });
 
 router.put("/api/burgers/update/:id", function (req, res){
-    var condition = "id = " + req.params.id;
+    console.log("root gets hit");
+    var condition = req.params.id;
     console.log("condition", condition);
 
     burgers.updateOne({devoured: true}, condition, function(result) {
@@ -50,7 +55,9 @@ router.put("/api/burgers/update/:id", function (req, res){
         } else {
           res.status(200).end();
         }
+        console.log(result);
         res.redirect("/");
+        
     });
 
     // burgers.updateOne({ 
