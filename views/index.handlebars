@@ -2,48 +2,54 @@
 <div class = "row">
 
     <div class = "col-sm-6">
-        <ul>
-            {{#each burgers}}
-              {{#unless this.devoured}}
-           <li>
-               {{!-- {{burger_name}} --}}
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <span>{{this.id}}. {{this.burger_name}}</span>
-                        {{!-- <button type="submit" class="btn btn-sm float-right">Eat Up</button> --}}
-                </form>
-               <button class = "notdevoured" data-id = "{{this.id}}"> EAT! </button>
-           </li>
-              {{/unless}}
-            {{/each}}
-        </ul>
+        <div class="card special-card">
+            <div class="card-body">
+                <h2>FOOOOD!</h2>
+                <ul>
+                     {{#each burgers}}
+                     {{#unless this.devoured}}
+                     <li>
+                       {{burger_name}}
+                      <form action="/{{this.id}}?_method=PUT" method="POST">
+                     <button class = "notdevoured" data-id = "{{this.id}}"> EAT! </button>
+                    </li> 
+                     {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div class = "col-sm-6">
+        <div class="card special-card">
+            <div class="card-body">
+                <h2>Yummy in my tummy</h2>
             {{#each burgers}}
               {{#if this.devoured}}
            <li>
-               <span>{{this.id}}. {{this.burger_name}}</span>
-               {{!-- {{burger_name}} --}}
+               {{burger_name}}
                <button class = "yesdevoured" data-id = "{{this.id}}"> I'M SATISFIED. NO MORE BURGERS! </button>
-           </li>
+           </li> 
               {{/if}}
             {{/each}}
-    </div>
+            </div>
+        </div>
+     </div>
 </div>
 
 <h2>What burger would you like to have?</h2>
 <form class="create-form">
 
-  <div class="form-group">
+  <div class="form-group" id = "createform">
     <label for="ca">Burger:</label>
     <input type="text" id="burg" name="name">
+
+    <button type="submit" class="add-burger">Add Burger</button>
   </div>
 
-  <button type="submit" class="add-burger">Add Burger</button>
+  
 </form>
 
-
-
-
+ 
 
 

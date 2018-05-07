@@ -2,7 +2,7 @@ body {
    background-color: #49b78f52;
 }
 
-h1, h2 , .create-form {
+h1, h2 , .create-form, #createform {
     text-align: center;
 }
 
