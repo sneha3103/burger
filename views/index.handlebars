@@ -3,9 +3,9 @@
 
     <div class = "col-sm-6">
         <div class="card special-card">
-            <div class="card-body">
+            <div class="card-body" id ="cardId">
                 <h2>FOOOOD!</h2>
-                <ul>
+                <ul id = "listFormat">
                      {{#each burgers}}
                      {{#unless this.devoured}}
                      <li>
@@ -21,13 +21,13 @@
 
     <div class = "col-sm-6">
         <div class="card special-card">
-            <div class="card-body">
+            <div class="card-body" id="cardId">
                 <h2>Yummy in my tummy</h2>
             {{#each burgers}}
               {{#if this.devoured}}
            <li>
                {{burger_name}}
-               <button class = "yesdevoured" data-id = "{{this.id}}"> I'M SATISFIED. NO MORE BURGERS! </button>
+               {{!-- <button class = "yesdevoured" data-id = "{{this.id}}"> I'M SATISFIED. NO MORE BURGERS! </button> --}}
            </li> 
               {{/if}}
             {{/each}}

@@ -26,17 +26,14 @@ function printQuestionMarks(num) {
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
           value = "'" + value + "'";
         }
-
-        // e.g. {sleepy: true} => ["sleepy=true"]
+        // e.g. {devoured: true} => ["devoured=true"]
         arr.push(key + "=" + value);
       }
     }
-  
     // translate array of strings to a single comma-separated string
     return arr.toString();
   }
   
-
 
 var orm = {
     //select all from burgers table
@@ -44,24 +41,16 @@ var orm = {
         var queryString = "SELECT * FROM burgers";
         connection.query(queryString, function(err, result){
             if (err) throw err;
-                cb(result);
-           
+                cb(result); 
         });
     },
 
     insertOne: function(newBurger) {
-
-        //insert into burgers set newburger = {
-            // burger_name: "cheeseburger";
-              //}
-              //? depending on what the burger name is going to be
         var queryString = "INSERT INTO burgers SET ?";
         //question mark will be replaced by the object listed in second parameter below
         connection.query(queryString, {burger_name: newBurger}, function(err, result){
             if (err) throw (err);
         });
-
-        //orm.insertOne("cheeseburger"/user input jquery);
     },
     
     //value of devoured from false to true
@@ -74,8 +63,6 @@ var orm = {
             cb(result);
         });
     }
-
-    //orm.updateOne("2"//button associated with it html. data attr)
 }
 
 module.exports = orm;

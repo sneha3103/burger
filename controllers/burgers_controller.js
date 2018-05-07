@@ -33,14 +33,6 @@ router.post("/api/burgers", function(req, res){
     //   res.json({ id: result.insertId });
       res.redirect("/");
     });
-   
-    // burgers.insertOne([
-    //     "burger_name" , "devoured"
-    // ], [
-    //     req.body.burger_name, req.body.devoured
-    // ], function(result){
-    //     res.json({ id: result.insertId });
-    // });
 });
 
 router.put("/api/burgers/update/:id", function (req, res){
@@ -56,20 +48,8 @@ router.put("/api/burgers/update/:id", function (req, res){
           res.status(200).end();
         }
         console.log(result);
-        res.redirect("/");
-        
-    });
-
-    // burgers.updateOne({ 
-    //     devoured: req.body.devoured 
-    // }, condition, function(result) {
-    //     if(result.changedRows == 0) {
-    //         return res.status(404).end();
-    //     } else {
-    //         res.status(200).end();
-    //     }
-    //     // res.redirect("/");
-    // });   
+        res.redirect("/");   
+    });   
 });
 
 

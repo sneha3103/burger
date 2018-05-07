@@ -28,13 +28,6 @@ app.use(express.static(path.join(__dirname + "/public")));
 var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes);
 
-
-// app.get("/", function(req, res) {
-//     res.send("hi");
-//     // res.render("index", {sql table name: data} );
-//   });
-
-
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
     // Log (server-side) when our server has started
