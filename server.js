@@ -7,6 +7,8 @@ var path = require("path");
 var methodOverride = require("method-override");
 
 
+// app.use(methodOverride('_method'));
+
 // Create an instance of the express app.
 var app = express();
 

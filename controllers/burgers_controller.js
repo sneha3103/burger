@@ -14,10 +14,11 @@ router.get("/", function (req, res){
             burgers: data
         };
         console.log(hbsObject);
-        for (i = 0; i < hbsObject.length; i++) {
+        for (i = 0; i < hbsObject.burgers.length; i++) {
             hbsObject.burgers[i].devoured = parseInt(hbsObject.burgers[i].devoured);
         }
         res.render("index", hbsObject);
+        
     });
 });
 
@@ -27,12 +28,13 @@ router.post("/api/burgers", function(req, res){
     console.log("post works");
     // res.redirect("/");
     
-
-    burgers.insertOne(newBurger, function(result) {
+  burgers.insertOne(newBurger);
+    // burgers.insertOne(newBurger, function(result) {
       // Send back the ID of the new quote
     //   res.json({ id: result.insertId });
-      res.redirect("/");
-    });
+        // res.redirect("/");
+    // });
+    res.redirect("/");
 });
 
 router.put("/api/burgers/update/:id", function (req, res){
@@ -40,16 +42,18 @@ router.put("/api/burgers/update/:id", function (req, res){
     var condition = req.params.id;
     console.log("condition", condition);
 
-    burgers.updateOne({devoured: true}, condition, function(result) {
-        if (result.changedRows == 0) {
-          // If no rows were changed, then the ID must not exist, so 404
-          return res.status(404).end();
-        } else {
-          res.status(200).end();
-        }
-        console.log(result);
+    burgers.updateOne(condition);
+
+    // burgers.updateOne({devoured: true}, condition, function(result) {
+    //     if (result.changedRows == 0) {
+    //       // If no rows were changed, then the ID must not exist, so 404
+    //       return res.status(404).end();
+    //     } else {
+    //       res.status(200).end();
+    //     }
+    //     console.log(result);
         res.redirect("/");   
-    });   
+    // });   
 });
 
 
