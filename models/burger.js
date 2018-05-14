@@ -14,11 +14,19 @@ var burgers = {
         });
     },
    //objcolvals is devoured=true
-    updateOne: function(objColVals, condition, cb) {
-        orm.updateOne(objColVals, condition, function(res){
+   //condition is req.params.id
+    updateOne: function(condition, cb) {
+        orm.updateOne(condition, function(res){
             cb(res);
         });
-    }
+   }
+
+
+    // updateOne: function(objColVals, condition, cb) {
+    //     orm.updateOne(objColVals, condition, function(res){
+    //         cb(res);
+    //     });
+    // }
 };
 
 module.exports = burgers;
