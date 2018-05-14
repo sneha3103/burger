@@ -1,6 +1,5 @@
 var connection = require( "../config/connection.js" );
 
-
 //printQuestionMarks function is to convert the array of question marks from mysql placeholders, and convert them to string.
 // ["?", "?", "?"].toString() => "?,?,?";
 
@@ -18,7 +17,7 @@ function printQuestionMarks( num ) {
 function objToSql( ob ) {
   var arr = [];
 
-  // Created a for loop to go through the keys and push the value into a string integer array
+// Created a for loop to go through the keys and push the value into a string integer array
   for ( var key in ob ) {
     var value = ob[ key ];
     if ( Object.hasOwnProperty.call( ob, key ) ) {
@@ -51,18 +50,14 @@ var orm = {
 
   insertOne: function ( newBurger, cb ) {
 
-    //insert into burgers set newburger = {
-    // burger_name: "cheeseburger";
-    //}
-    //? depending on what the burger name is going to be
+    //insert into burgers set newburger = { burger_name: "cheeseburger"};- depending on what the burger name is going to be
+
     var queryString = "INSERT INTO burgers SET ?";
     //question mark will be replaced by the object listed in second parameter below
     connection.query( queryString, { burger_name: newBurger }, function ( err, result ) {
       if ( err ) throw ( err );
       cb( result )
-    } );
-
-    //orm.insertOne("cheeseburger"/user input jquery);
+    });
   },
 
   //value of devoured from false to true
@@ -72,10 +67,8 @@ var orm = {
     connection.query( queryString, { id: burgerId }, function ( err, result ) {
       if ( err ) throw ( err );
       cb(result);
-    } );
+    });
   }
-
-  //orm.updateOne("2"//button associated with it html. data attr)
 }
 
 module.exports = orm;

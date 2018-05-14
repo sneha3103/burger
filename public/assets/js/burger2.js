@@ -1,38 +1,23 @@
 $( function () {
     $( ".add-burger" ).on( "click", function ( event ) {
       event.preventDefault();
-  
-      // var id = $( this ).attr( "data-id" );
-    //   console.log( "This is the added burger id:" + id );
+
       var newBurger = {
         burger_name: $( "#burg" ).val().trim(),
       };
   
       console.log( newBurger.burger_name );
   
-      // Send the POST request.
-      //   $.ajax( "/api/burgers/", {
-      //     type: "POST",
-      //     data: newBurger
-      //   } ).then(
-      //     function ( data ) {
-      //       console.log( "Created New Burger" );
-      //       if ( data )
-      //         // res.redirect( '/' )
-      //         // Reload the page to get the updated list
-      //         location.reload();
-      //     }
-      //   );
-      // } );
-  
+      //Post request to allow the user input burgers to display on the browser
       $.post( '/api/burgers', newBurger, function ( data ) {
         if ( data ) {
-          location.reload()
+          location.reload();
         }
       })
     });
   
-      $( ".notdevoured" ).on( "click", function ( event ) {
+     //When user clicks the EAT button, the devoured status changes from false to true. 
+    $( ".notdevoured" ).on( "click", function ( event ) {
         var id = $( this ).data( "id" );
   
         console.log( id );
@@ -49,14 +34,8 @@ $( function () {
           function (data) {
               console.log(data);
             console.log( "Devoured burger #", id );
-            location.reload()
-            // Reload the page to get the updated list
-            // location.reload();
+            location.reload();
           }
         );
-  
-      });
-  
-    // } );
-  
+    });
 });

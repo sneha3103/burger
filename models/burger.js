@@ -6,7 +6,6 @@ var burgers = {
             cb(res);
         });
     },
-
     //columns and values are arrays
     insertOne: function(cols, vals, cb) {
         orm.insertOne(cols, vals, function(res) {
@@ -20,13 +19,6 @@ var burgers = {
             cb(res);
         });
    }
-
-
-    // updateOne: function(objColVals, condition, cb) {
-    //     orm.updateOne(objColVals, condition, function(res){
-    //         cb(res);
-    //     });
-    // }
 };
 
 module.exports = burgers;
